@@ -14,6 +14,7 @@ function writePassword() {
 // generateBtn.addEventListener("click", writePassword);
 
 function check_length(length) {
+  return false;
 }
 
 module.exports = check_length;
