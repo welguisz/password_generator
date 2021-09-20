@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const sum = require('../script')
-test('adds 1 +2 to equal 3', () => {
-    expect(sum(1,2)).toBe(3);
+const check_length = require('../script')
+test('if length is less than 8, expect false to be returned', () => {
+    expect(check_length(3).toBe(false);
 })
