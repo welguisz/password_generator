@@ -14,7 +14,7 @@ function writePassword() {
 // generateBtn.addEventListener("click", writePassword);
 
 function check_length(length) {
-  if (length >= 8) {
+  if ((length >= 8) && (length <= 128)) {
     return true;
   }
   return false;

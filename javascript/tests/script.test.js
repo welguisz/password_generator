@@ -12,5 +12,5 @@ test('if length is greater than or equal to 8 and less than or equal to 128, exp
 })
 
 test('if length is greater than 128, expect falsed to be returned', () => {
-    expect(check_length(129)).toBe(false));
+    expect(check_length(129)).toBe(false);
 })
