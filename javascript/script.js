@@ -20,4 +20,9 @@ function check_length(length) {
   return false;
 }
 
-module.exports = check_length;
+function check_options(uppercase, lowercase, numeric, special) {
+  return uppercase || lowercase || numeric || special;
+}
+
+module.exports.check_length = check_length;
+module.exports.check_options = check_options;
