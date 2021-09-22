@@ -13,8 +13,6 @@ function writePassword() {
     var char_array = create_char_array(uppercase, lowercase, numeric, special);
     var password = create_password(length, char_array);
     passwordText.value = password;
-    lengthError.hidden = true;
-    checkBoxError.hidden = true;
   } else {
     passwordText.value = "not_good";
   }
