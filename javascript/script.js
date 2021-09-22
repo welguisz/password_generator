@@ -49,6 +49,16 @@ function create_char_array(uppercase, lowercase, numeric, special) {
   return flatten_array;
 }
 
+function create_password(length, char_array) {
+  let password = '';
+  for(let i = 0; i < length; i++) {
+    const rand_char = char_array[Math.floor(Math.random() * char_array.length)];
+    password = password.concat(rand_char);
+  }
+  return password;
+}
+
 module.exports.check_length = check_length;
 module.exports.check_options = check_options;
 module.exports.create_char_array = create_char_array;
+module.exports.create_password = create_password;
