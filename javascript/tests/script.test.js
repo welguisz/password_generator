@@ -69,3 +69,16 @@ describe('Check that different arrays are given when different character sets ar
         expect(password_generator.create_char_array(true, true, true, true).length).toBe(95);
     })
 })
+
+describe("Check that a password is returned with the given length", () => {
+    test('returns all A when char_array is all As', () => {
+        const val = password_generator.create_password(8, ["A", "A"]);
+        expect(val.length).toBe(8);
+        expect(val).toBe("AAAAAAAA");
+    })
+    test('returns random character when char_array is randomized', () => {
+        const val = password_generator.create_password(120, ["A", "B", "C", "1", "2", "3"]);
+        console.log(val);
+        expect(val.length).toBe(120);
+    })
+})
