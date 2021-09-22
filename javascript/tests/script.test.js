@@ -20,3 +20,21 @@ describe('WHEN prompted for the length of the password\n' +
     })
 })
 
+describe('THEN my input should be validated and at least one character type should be selected', () => {
+    test('if no character sets is selected, return false', () => {
+        expect(password_generator.check_options(false, false, false, false)).toBe(false);
+    })
+    test('if one character set is selected, return true', () => {
+        expect(password_generator.check_options(true, false, false, false)).toBe(true);
+        expect(password_generator.check_options(false, true, false, false)).toBe(true);
+        expect(password_generator.check_options(false, false, true, false)).toBe(true);
+        expect(password_generator.check_options(false, false, false, true)).toBe(true);
+    })
+    test('if all characters sets are selected, return true', () => {
+        expect(password_generator.check_options(true, true, true, true)).toBe(true);
+    })
+})
+
+describe('Check that different arrays are given when different character sets are selected', () => {
+
+})
