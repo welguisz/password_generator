@@ -54,6 +54,24 @@ header {
   min-height: 100px;
 }
 
+.prompt {
+  font-family: sans-serif;
+  font-style: italic;
+  color: black;
+  size: 16px;
+}
+
+error {
+  font-family: sans-serif;
+  color: red;
+  size: 16px;
+}
+
+error:after {
+  content: "\a";
+  white-space: pre;
+}
+
 .card-footer {
   text-align: center;
 }

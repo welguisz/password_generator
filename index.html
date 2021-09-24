@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -23,12 +23,44 @@
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>
+          <options>
+            <h2>Password Options:</h2>
+            <div class="length_option">
+              <p class="prompt">Enter the length of password needed.</p>
+              <error hidden="true" id="not_an_integer">Length should be an integer (e.g. 8, 23, 100)</error>
+              <error hidden="true" id="length_error">Password length should be between 8 and 128 characters.</error>
+              <p>
+                <label for="length">Password length: </label>
+                <input id="length" type="text" placeholder="32" size="5"/>
+              </p>
+            </div>
+            <div class="character_options">
+              <p class="prompt">Please select at least one option for characters to use.</p>
+              <error hidden="true" id="checkbox_error">One of the checkboxes below needs to be selected.</error>
+              <p>
+                <input id="uppercase" class="checkbox" type="checkbox"/>
+                <label for="uppercase">Use Uppercase characters</label>
+              </p>
+              <p>
+                <input id="lowercase" class="checkbox" type="checkbox"/>
+                <label for="lowercase">Use lowercase characters</label>
+              </p>
+              <p>
+                <input id="numeric" class="checkbox" type="checkbox"/>
+                <label for="numeric">Use Numbers</label>
+              </p>
+              <p>
+                <input id="special" class="checkbox" type="checkbox"/>
+                <label for="special">Use Special Characters</label>
+              </p>
+            </div>
+          </options>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="generate" class="btn" onclick="writePassword()">Generate Password</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="javascript/script.js"></script>
   </body>
 </html>
