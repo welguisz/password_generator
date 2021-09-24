@@ -3,6 +3,7 @@
  */
 
 const password_generator = require('../script')
+const {isInteger} = require("../script");
 
 
 describe('WHEN prompted for the length of the password\n' +
@@ -78,7 +79,20 @@ describe("Check that a password is returned with the given length", () => {
     })
     test('returns random character when char_array is randomized', () => {
         const val = password_generator.create_password(120, ["A", "B", "C", "1", "2", "3"]);
-        console.log(val);
         expect(val.length).toBe(120);
+    })
+})
+
+describe("Check isInteger works", () => {
+    test('returns true when any integer is given', () => {
+        expect(isInteger(-5)).toBe(true);
+        expect(isInteger(0)).toBe(true);
+        expect(isInteger(3)).toBe(true);
+    })
+    test('returns false when String is an input', () => {
+        expect(isInteger("str")).toBe(false);
+    })
+    test('retrusn false when float is an input', () => {
+        expect(isInteger(3.15)).toBe(false);
     })
 })

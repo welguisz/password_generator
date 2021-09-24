@@ -26,8 +26,9 @@
           <options>
             <h2>Password Options:</h2>
             <div class="length_option">
-              <p class="prompt">Enter a length of password needed.</p>
-              <error hidden="true" id="length_error" wid>Password length should be between 8 and 128 characters.</error>
+              <p class="prompt">Enter the length of password needed.</p>
+              <error hidden="true" id="not_an_integer">Length should be an integer (e.g. 8, 23, 100)</error>
+              <error hidden="true" id="length_error">Password length should be between 8 and 128 characters.</error>
               <p>
                 <label for="length">Password length: </label>
                 <input id="length" type="text" placeholder="32" size="5"/>

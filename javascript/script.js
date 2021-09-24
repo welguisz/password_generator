@@ -5,9 +5,13 @@ function writePassword() {
   var lowercase = document.querySelector("#lowercase").checked;
   var numeric = document.querySelector("#numeric").checked;
   var special = document.querySelector("#special").checked;
+  var lengthIsInteger = document.querySelector("#not_an_integer");
   var lengthError = document.querySelector("#length_error");
   var checkBoxError = document.querySelector("#checkbox_error");
-  var validLength = check_length(length);
+  var lengthIsAnInteger = isInteger(length);
+  console.log(length);
+  console.log(lengthIsAnInteger);
+  var validLength = lengthIsAnInteger && check_length(length);
   var validOptions = check_options(uppercase, lowercase, numeric, special);
   if (validLength && validOptions) {
     var char_array = create_char_array(uppercase, lowercase, numeric, special);
@@ -16,6 +20,7 @@ function writePassword() {
   } else {
     passwordText.value = "not_good";
   }
+  lengthIsInteger.hidden = lengthIsAnInteger;
   lengthError.hidden = validLength;
   checkBoxError.hidden = validOptions;
 }
@@ -26,6 +31,11 @@ const NUMERIC = [...Array(10)].map((val,i) => String.fromCharCode(i+48));
 const SPECIAL_CHARS = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")",
   "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[",
   "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+
+function isInteger(length) {
+  return !isNaN(length) && parseInt(Number(length)) == length &&
+      !isNaN(parseInt(length, 10));
+}
 
 function check_length(length) {
   return ((length >= 8) && (length <= 128));
@@ -62,9 +72,10 @@ function create_password(length, char_array) {
   return password;
 }
 
-// module.exports.check_length = check_length;
-// module.exports.check_options = check_options;
-// module.exports.create_char_array = create_char_array;
-// module.exports.create_password = create_password;
+module.exports.check_length = check_length;
+module.exports.check_options = check_options;
+module.exports.create_char_array = create_char_array;
+module.exports.create_password = create_password;
+module.exports.isInteger = isInteger;
 
 //window.onload = init;
